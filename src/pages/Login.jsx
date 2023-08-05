@@ -37,6 +37,7 @@ const Login = () => {
             <div><input type="password" placeholder="비밀번호를 입력하세요" onChange={onChangePwd}/></div>
             <div><button onClick={onClickLogin}>로그인</button></div>
             <button onClick={()=>nav("/")}>Home</button>
+            <button onClick={()=>nav("/SignUp")}>Sign up</button>
         </LoginContainer>
     )
 }
