@@ -1,21 +1,24 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
+import { ButtonStyle, InputStyle, TitleStyle } from "./Login";
 
 const SignUpContainer = styled.div`
-    p{
-        font-size: 1.2em;
-        color: orangered;
-    }
-    .hint {
-      display: flex;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      margin-right: 40px;
-      align-items:center;
-      font-size: 12px;
-      color: #999;
-    }
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+`;
+
+const Hints = styled.div`
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items:center;
+    font-size: 12px;
+    color: #999;
     .success {
         color: royalblue;
     }
@@ -33,17 +36,15 @@ const SignUp = () => {
     const [signUpPwd, setSignUpPwd] = useState("");
     const [signUpConPw, setSignUpConPw] = useState("");
 
-    // 오류 메시지
-    const [idMessage, setIdMessage] = useState("");
-    const [pwMessage, setPwMessage] = useState("");
-    const [conPwMessage, setConPwMessage] = useState("");
-
     // 유효성 검사
     const [isId, setIsId] = useState(false);
     const [isPw, setIsPw] = useState(false)
     const [isConPw, setIsConPw] = useState(false);
 
-
+    // 오류 메시지
+    const [idMessage, setIdMessage] = useState("");
+    const [pwMessage, setPwMessage] = useState("");
+    const [conPwMessage, setConPwMessage] = useState("");
 
     const onChangeId = (e) => {
         setSignUpId(e.target.value);
@@ -86,23 +87,25 @@ const SignUp = () => {
 
     return(
         <SignUpContainer>
-        <p>회원가입 페이지 입니다.</p>
-        <div><input type="text" placeholder="아이디를 입력하세요" onChange={onChangeId} value={signUpId}/></div>
-        <div className="hint">
+        <TitleStyle color="green">회원가입 페이지 입니다.</TitleStyle>
+        <InputStyle type="text" placeholder="아이디를 입력하세요" onChange={onChangeId} value={signUpId}/>
+        <Hints>
             {signUpId.length > 0 && <span className={`message ${isId ? 'success' : 'error'}`}>{idMessage}</span>}
-        </div>
-        <div><input type="password" placeholder="비밀번호를 입력하세요" onChange={onChangePwd} value={signUpPwd}/></div>
-        <div className="hint">
+        </Hints>
+        <InputStyle type="password" placeholder="비밀번호를 입력하세요" onChange={onChangePwd} value={signUpPwd}/>
+        <Hints>
             {signUpPwd.length > 0 && (
                     <span className={`${isPw ? 'success' : 'error'}`}>{pwMessage}</span>)}
-        </div>
-        <div><input type="password" placeholder="비밀번호를 확인하세요" onChange={onChangeConPw} value={signUpConPw}/></div>
-        <div className="hint">
+        </Hints>
+        <InputStyle type="password" placeholder="비밀번호를 확인하세요" onChange={onChangeConPw} value={signUpConPw}/>
+        <Hints>
             {signUpConPw.length > 0 && (
                     <span className={`${isConPw ? 'success' : 'error'}`}>{conPwMessage}</span>)}
+        </Hints>
+        <div className="buttonList">
+            <ButtonStyle onClick={()=>nav("/Login")}>Sign up</ButtonStyle>
+            <ButtonStyle onClick={()=>nav("/Login")}>Back</ButtonStyle>
         </div>
-        <button onClick={()=>nav("/Login")}>회원가입</button>
-        <button onClick={()=>nav("/Login")}>돌아가기</button>
         </SignUpContainer>
     )
 }
