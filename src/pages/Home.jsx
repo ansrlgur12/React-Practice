@@ -19,6 +19,7 @@ const Home = () => {
                 <ButtonStyle onClick={()=>nav("/Login")}>Login</ButtonStyle>
                 <ButtonStyle onClick={()=>nav("/Signup")}>Sign up</ButtonStyle>
             </div>
+            <button onClick={()=>nav("/UseState")}>useState 복습</button>
         </HomeContainer>
     )
 }
