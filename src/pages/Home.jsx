@@ -20,6 +20,7 @@ const Home = () => {
                 <ButtonStyle onClick={()=>nav("/Signup")}>Sign up</ButtonStyle>
             </div>
             <button onClick={()=>nav("/UseState")}>useState 복습</button>
+            <button onClick={()=>nav("/UseEffect")}>useEffect 복습</button>
         </HomeContainer>
     )
 }
