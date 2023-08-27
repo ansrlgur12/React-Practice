@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { styled } from "styled-components";
 import { TitleStyle, InputStyle } from "./Login";
+import Header from "./Header";
 
 const UseEffectStyle = styled.div`
     display: flex;
@@ -34,6 +35,8 @@ const UseEffect = () => {
     }
 
     return(
+        <>
+        <Header />
         <UseEffectStyle>
         <TitleStyle color="purple">useEffect 복습</TitleStyle>
         <div className="inputArea">
@@ -41,6 +44,7 @@ const UseEffect = () => {
             <InputStyle value={nickName} onChange={onChangeNickName} placeholder="닉네임을 입력하세요"/>
         </div>
         </UseEffectStyle>
+        </>
     );
 }
 

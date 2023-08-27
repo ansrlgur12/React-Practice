@@ -5,9 +5,11 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import SignUp from './pages/SignUp';
 import UseState from './pages/UseState';
 import UseEffect from './pages/UseEffect';
+import UserStore from './Context/ContextApi';
 
 const App = () => {
   return (
+    <UserStore>
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,6 +19,7 @@ const App = () => {
         <Route path="/UseEffect" element={<UseEffect />} />
       </Routes>
     </Router>
+    </UserStore>
   );
 }
 

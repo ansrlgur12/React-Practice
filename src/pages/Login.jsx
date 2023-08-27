@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
+import { UserContext } from "../Context/ContextApi";
+import { useContext } from "react";
 
 const LoginContainer = styled.div`
     height: 60vh;
@@ -38,6 +41,10 @@ const Login = () => {
     const [loginId, setLoginId] = useState("");
     const [loginPwd, setLoginPwd] = useState("");
 
+    const context = useContext(UserContext);
+    const {setUserId, setPassword} = context;
+
+
     const onChangeId = (e) => {
         setLoginId(e.target.value);
         console.log(e.target.value);
@@ -50,11 +57,16 @@ const Login = () => {
 
     const onClickLogin = () => {
         console.log("로그인 버튼이 클릭되었습니다.")
+        setUserId(loginId);
+        setPassword(loginPwd);
         console.log(`아이디 : ${loginId}`);
         console.log(`비밀번호 : ${loginPwd}`);
+        nav("/");
     }
 
     return(
+        <>
+        <Header />
         <LoginContainer>
             <TitleStyle color="royalblue">여기는 로그인 페이지 입니다.</TitleStyle>
             <InputStyle type="text" placeholder="아이디를 입력하세요" onChange={onChangeId}/>
@@ -65,6 +77,7 @@ const Login = () => {
                 <ButtonStyle onClick={()=>nav("/")}>Home</ButtonStyle>
             </div>
         </LoginContainer>
+        </>
     )
 }
 export default Login;

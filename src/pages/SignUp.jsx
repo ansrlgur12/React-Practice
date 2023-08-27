@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { ButtonStyle, InputStyle, TitleStyle } from "./Login";
+import Header from "./Header";
 
 const SignUpContainer = styled.div`
     
@@ -86,6 +87,8 @@ const SignUp = () => {
     }
 
     return(
+        <>
+        <Header />
         <SignUpContainer>
         <TitleStyle color="green">회원가입 페이지 입니다.</TitleStyle>
         <InputStyle type="text" placeholder="아이디를 입력하세요" onChange={onChangeId} value={signUpId}/>
@@ -107,6 +110,7 @@ const SignUp = () => {
             <ButtonStyle onClick={()=>nav("/Login")}>Back</ButtonStyle>
         </div>
         </SignUpContainer>
+        </>
     )
 }
 
