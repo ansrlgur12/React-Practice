@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import UseState from './pages/UseState';
 import UseEffect from './pages/UseEffect';
 import UserStore from './Context/ContextApi';
+import HappyDraw from './pages/HappyDraw';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/UseState" element={<UseState />} />
         <Route path="/UseEffect" element={<UseEffect />} />
+        <Route path="/HappyDraw" element={<HappyDraw />} />
       </Routes>
     </Router>
     </UserStore>

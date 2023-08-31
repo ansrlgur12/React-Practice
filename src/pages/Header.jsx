@@ -49,10 +49,7 @@ const Header = () => {
             <HeaderTitle>React Practice</HeaderTitle>
             <ColBox>
                 <LoginInfo>현재 아이디 : {userId ? userId : "???"}</LoginInfo>
-                {userId &&
-                    <LogOutBtn onClick={onClickLogOut}>로그아웃</LogOutBtn>
-                }
-                
+                {userId && <LogOutBtn onClick={onClickLogOut}>로그아웃</LogOutBtn>}
             </ColBox>
             
         </HeaderContainer>

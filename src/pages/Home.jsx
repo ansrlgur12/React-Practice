@@ -24,6 +24,7 @@ const Home = () => {
             </div>
             <button onClick={()=>nav("/UseState")}>useState 복습</button>
             <button onClick={()=>nav("/UseEffect")}>useEffect 복습</button>
+            <button onClick={()=>nav("/HappyDraw")}>Happy Draw</button>
         </HomeContainer>
         </>
     )
